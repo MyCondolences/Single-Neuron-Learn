@@ -1,7 +1,6 @@
 import csv
 import pickle
 
-import matplotlib.pyplot as plt
 import random
 
 print_text = []

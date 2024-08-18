@@ -1,23 +1,6 @@
 import csv
 import matplotlib.pyplot as plt
-import random
-
-
-def load_data(fil):
-    with open(fil, 'r') as file:
-        reader = csv.reader(file)
-        data = []
-        next(reader)  # skips headings
-        for row in reader:
-            data.append([int(e) for e in row])
-    return data
-
-
-def separate_columns(data):
-    first_column = [row[0] for row in data]
-    rest_columns = [row[1:] for row in data]
-    return first_column, rest_columns
-
+from main import load_data, separate_columns,output
 
 filename = 'SalData.csv'
 data = load_data(filename)
@@ -65,14 +48,6 @@ annotations = ['2 epoch @ 5e-07',
                '50 000 epochs @ 5e-08',
                '1000 eopocks @1e-06 with cutoff 65000'
                ]
-
-
-def output(x, weights):
-    out = (weights[0] * x[0] + weights[1] * x[1] + weights[2] * x[2] +
-           weights[3] * x[3] + weights[4] * x[4] + weights[5] * x[5] +
-           weights[6] * x[6])
-
-    return out
 
 
 errort = []
